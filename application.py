@@ -1,4 +1,3 @@
-from PIL import Image
 from flask import Flask, request, Response
 import json
 application = app = Flask(__name__)
