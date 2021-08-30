@@ -25,5 +25,3 @@ def sub_budget():
     # Return response
     response = Response(json.dumps(res_data), mimetype="application/json")
     return response
-
-app.run()
