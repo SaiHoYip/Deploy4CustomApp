@@ -1,27 +1,28 @@
 from flask import Flask, request, Response
+from flask import render_template
 import json
 import help
+import sqlite3
 application = app = Flask(__name__)
-@app.route('/')
-def hello():
-    return 'hello world'
 
-@app.route("/SubBudge/new", methods=["POST"])
+@app.route("/", methods=["POST", "Get"])
 def sub_budget():
+    Spent = ""
+    Budget = ""
+    if request.method == "POST" and "Spent" in request.form and "Budget" in request.form:
     # Get item from the POST body
-    req_data = request.get_json()
-    Spent = req_data['Spent']
-    Budget = req_data['Budget']
-    res_data = help.Subtraction(Budget,Spent)
+        Spent = str(request.form.get("Spent"))
+        Budget = str(request.form.get("Budget"))
+        req_data = request.get_json()
+        help.Subtraction(Budget, Spent)
+    cat = sqlite3.connect('Budget.db')
+    db = cat.cursor()
+    rows = db.execute('SELECT * FROM Budgee')
+    ro = rows.fetchall()
 
-    if res_data is None:
-        response = Response(
-            "operation can't be done either paramaters aren't supplied or paramaters are invalid",
-            status=400,
-            mimetype="application/json",
-        )
-        return response
+        
 
     # Return response
-    response = Response(json.dumps(res_data), mimetype="application/json")
-    return response
+    return render_template("home.html", Spent = "Spent", Budget= "Budget", ro=ro)
+
+app.run()

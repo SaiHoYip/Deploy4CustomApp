@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href='/static/main.css' />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetDb</title>
+</head>
+
+<body>
+<div class="Calculation">
+    <h1>Please fill out this form so I can update the database</h1>
+    <form action="/" method="POST">
+        <label><b>Budget: </b></label>
+        <input type="Number" name="Budget" placeholder="0">
+        <label><b>Spent: </b></label>
+        <input type="Spending" name="Spent" placeholder="0">
+        <button type="submit" value="submit">Convert</button>
+    </form>
+    <table>
+        {% for row in ro %}
+        <tr>
+          <th> {{ row }}</th>
+        </tr> 
+        {% endfor %}
+    </table>
+</div>
+

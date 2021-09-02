@@ -14,7 +14,7 @@ def Subtraction(Budget,Spent):
         c.execute("insert into Budgee(Budget, Spent, Left) values(?,?,?)", (Budget,Spent,str(Left),))
         # We commit to save the change
         conn.commit()
-        return {"Spent": Spent}
+        return {"Left": Left}
     except Exception as e:
         print("Error: ", e)
         return None
