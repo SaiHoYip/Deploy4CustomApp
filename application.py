@@ -25,4 +25,3 @@ def sub_budget():
     # Return response
     return render_template("home.html", Spent = "Spent", Budget= "Budget", ro=ro)
 
-app.run()
