@@ -40,4 +40,3 @@ def delete_item():
     ro = rows.fetchall()
     return render_template("home.html", ro=ro)
 
-app.run(debug=1)
