@@ -16,16 +16,27 @@
         <input type="Number" name="Budget" placeholder="0">
         <label><b>Spent: </b></label>
         <input type="Spending" name="Spent" placeholder="0">
+        <label><b>Slot ID: </b></label>
+        <input type="Number" name="slot_id" placeholder="0">
         <button type="submit" value="submit">Convert</button>
     </form>
+
+    <h1>Fill out this part if you want to delete a specific part</h1>
+    <form action="/delete" method="POST">
+        <label><b>ID: </b></label>
+        <input type="Number" name="slot_id" placeholder="0">
+        <button type="submit" value="submit">DELETE</button>
+    </form>
+
     <table>
         <tr>
             <th>Budget</th>
             <th>Spent</th>
             <th>Left</th>
+            <th>slot_id</th>
         {% for row in ro %}
         <tr>
-          <th> {{ row[0] }}</th> <th>{{row[1]}}</th> <th>{{row[2]}}</th>
+          <th> {{ row[0] }}</th> <th>{{row[1]}}</th> <th>{{row[2]}}</th> <th>{{row[4]}}</th>
         </tr> 
         {% endfor %}
     </table>
