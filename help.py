@@ -1,7 +1,5 @@
 import sqlite3
-
-DB_PATH = "Budget.db"  # Update this path accordingly
-
+DB_PATH = "Budget.db"
 
 def Subtraction(Budget,Spent, slot_id):
     try:

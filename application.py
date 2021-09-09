@@ -6,6 +6,7 @@ import sqlite3
 
 application = app = Flask(__name__)
 
+
 @app.route("/", methods=["POST", "Get"])
 def sub_budget():
     Spent = ""
@@ -40,3 +41,4 @@ def delete_item():
     ro = rows.fetchall()
     return render_template("home.html", ro=ro)
 
+app.run(debug=1)
