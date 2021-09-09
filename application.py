@@ -40,5 +40,3 @@ def delete_item():
     rows = db.execute('SELECT * FROM Budgee')
     ro = rows.fetchall()
     return render_template("home.html", ro=ro)
-
-app.run(debug=1)
